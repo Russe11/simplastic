@@ -1,4 +1,3 @@
 # simplastic
-Opinionated Elasticsearch Library for Simple ElasticSearch
-
-Coming soon to an NPM package near you!
+Opinionated Elasticsearch library designed to make ES super duper easy!
+Early development. Not for public use yet.
