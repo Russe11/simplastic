@@ -1,16 +1,16 @@
+const TextMapping = require('./text');
+
+/**
+ * https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html
+ */
 class SimplasticMappings {
 
   /**
    * text - Core datatypes
    * https://www.elastic.co/guide/en/elasticsearch/reference/current/text.html
    */
-  text(index = true) {
-    return this._generateType('text', index, {
-      keyword: {
-        type: 'keyword',
-        ignore_above: 256
-      }
-    });
+  text() {
+    return new TextMapping();
   }
 
   keyword(index = true) {
@@ -81,11 +81,17 @@ class SimplasticMappings {
     return this._generateType('date_range', index);
   }
 
-  geoPoint() {
+  geoPoint(index = true) {
     return this._generateType('geo_point', index);
   }
 
+  geoShape(index = true) {
+    return this._generateType('geo_shape', index)
+  }
 
+  ip() {
+    return this._generateType('ip');
+  }
 
   _generateType(type, index, fields) {
     return {
