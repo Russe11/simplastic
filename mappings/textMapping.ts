@@ -21,7 +21,7 @@ import {
 /**
  * https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html
  */
-class TextMapping implements
+export class TextMapping implements
 
   AnalyzerParam,
   BoostParam,
@@ -51,15 +51,32 @@ class TextMapping implements
   public store: (value?: boolean) => this;
   public searchAnalyzer: (value: string) => this;
   public similarityParam: (value: similarityParamOptions) => this;
-  public termVectorParam: (value: termVectorParamOptions.no) => this;
+  public termVectorParam: (value: termVectorParamOptions) => this;
 
   public output: any;
 
-  constructor() {
-    this.output = {
-      type: 'text'
-    };
+  constructor(options?: TextMappingOptions) {
+    if (!options) {
+      options = {};
+    }
+    options.type = options.type || 'text';
   }
 }
 
-module.exports = TextMapping;
+export interface TextMappingOptions {
+  type?: string;
+  analyzer?: string;
+  boost?: number;
+  eagerGlobalOrdinals?: boolean;
+  fieldData?: boolean;
+  fieldDataFrequencyFilter?: (min: number, max: number, minSegmentSize: number) => this;
+  fields?: string | string[];
+  index?: boolean;
+  indexOptionsParam?: indexOptionsParamOptions;
+  norms?: boolean;
+  positionIncrementGap?: number;
+  store?: boolean;
+  searchAnalyzer?: string;
+  similarityParam?: similarityParamOptions;
+  termVectorParam?: termVectorParamOptions;
+}

@@ -22,7 +22,7 @@ import {
 
  https://www.elastic.co/guide/en/elasticsearch/reference/current/keyword.html
  */
-class KeywordMapping implements
+export class KeywordMapping implements
 
   BoostParam,
   EagerGlobalOrdinalsParam,
@@ -57,9 +57,8 @@ class KeywordMapping implements
 
   constructor() {
     this.output = {
-      type: 'text'
+      type: 'keyword'
     };
   }
 }
 
-module.exports = KeywordMapping;

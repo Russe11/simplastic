@@ -1,4 +1,15 @@
-const TextMapping = require('./text');
+import {TextMapping, TextMappingOptions} from './textMapping';
+import { KeywordMapping } from './keywordMapping';
+import { LongMapping } from './longMapping';
+import { IntegerMapping } from './integerMapping';
+import { ShortMapping } from './shortMapping';
+import { ByteMapping } from './byteMapping';
+import { DoubleMapping } from './doubleMapping';
+import { FloatMapping } from './floatMapping';
+import { HalfFloatMapping } from './halfFloatMapping';
+import { ScaledFloatMapping } from './scaledFloatMapping';
+import { DateMapping } from './dateMapping';
+import { BooleanMapping } from './booleanMapping';
 
 /**
  * https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html
@@ -9,54 +20,56 @@ export class SimplasticMappings {
    * text - Core datatypes
    * https://www.elastic.co/guide/en/elasticsearch/reference/current/text.html
    */
-  text() {
-    return new TextMapping();
+  static text() {
+    const t =  new TextMapping({type: 'hi'});
+
+
   }
-  //
-  // keyword(index = true) {
-  //   return this._generateType('keyword', index);
-  // }
-  //
-  // long(index = true) {
-  //   return this._generateType('long', index);
-  // }
-  //
-  // integer(index = true) {
-  //   return this._generateType('integer', index);
-  // }
-  //
-  // short(index = true) {
-  //   return this._generateType('short', index);
-  // }
-  //
-  // byte(index = true) {
-  //   return this._generateType('byte', index);
-  // }
-  //
-  // double(index = true) {
-  //   return this._generateType('double', index);
-  // }
-  //
-  // float(index = true) {
-  //   return this._generateType('float', index);
-  // }
-  //
-  // halfFloat(index = true) {
-  //   return this._generateType('half_float', index);
-  // }
-  //
-  // scaledFloat(index = true) {
-  //   return this._generateType('scaled_float', index);
-  // }
-  //
-  // date(index = true) {
-  //   return this._generateType('date', index);
-  // }
-  //
-  // boolean(index = true) {
-  //   return this._generateType('boolean', index);
-  // }
-  //
+
+  static keyword() {
+    return new KeywordMapping();
+  }
+
+  static long() {
+    return new LongMapping();
+  }
+
+  static integer() {
+    return new IntegerMapping();
+  }
+
+  static short() {
+    return new ShortMapping();
+  }
+
+  static byte() {
+    return new ByteMapping();
+  }
+
+  static double() {
+    return new DoubleMapping();
+  }
+
+  static float() {
+    return new FloatMapping();
+  }
+
+  static halfFloat() {
+    return new HalfFloatMapping();
+  }
+
+  static scaledFloat() {
+    return new ScaledFloatMapping();
+  }
+
+  static date() {
+    return new DateMapping();
+  }
+
+  static boolean() {
+    return new BooleanMapping();
+  }
+
   // binary(index = true) {
   //   return this._generateType('binary', index);
   // }
