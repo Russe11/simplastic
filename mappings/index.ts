@@ -1,16 +1,16 @@
 import {TextMapping, TextMappingOptions} from './textMapping';
-import { KeywordMapping } from './keywordMapping';
-import { LongMapping } from './longMapping';
-import { IntegerMapping } from './integerMapping';
-import { ShortMapping } from './shortMapping';
-import { ByteMapping } from './byteMapping';
-import { DoubleMapping } from './doubleMapping';
-import { FloatMapping } from './floatMapping';
-import { HalfFloatMapping } from './halfFloatMapping';
-import { ScaledFloatMapping } from './scaledFloatMapping';
-import { DateMapping } from './dateMapping';
-import { BooleanMapping } from './booleanMapping';
-import { BinaryMapping } from './binaryMapping';
+import {KeywordMapping, KeywordMappingOptions} from './keywordMapping';
+import {LongMapping} from './longMapping';
+import {IntegerMapping} from './integerMapping';
+import {ShortMapping} from './shortMapping';
+import {ByteMapping} from './byteMapping';
+import {DoubleMapping} from './doubleMapping';
+import {FloatMapping} from './floatMapping';
+import {HalfFloatMapping} from './halfFloatMapping';
+import {ScaledFloatMapping} from './scaledFloatMapping';
+import {DateMapping} from './dateMapping';
+import {BooleanMapping} from './booleanMapping';
+import {BinaryMapping} from './binaryMapping';
 import {IntegerRangeMapping} from './integerRangeMapping';
 import {FloatRangeMapping} from './floatRangeMapping';
 import {LongRangeMapping} from './longRangeMapping';
@@ -26,12 +26,12 @@ export class SimplasticMappings {
    * text - Core datatypes
    * https://www.elastic.co/guide/en/elasticsearch/reference/current/text.html
    */
-  static text() {
-    return new TextMapping();
+  static text(options: TextMappingOptions = {}) {
+    return new TextMapping(options);
   }
 
-  static keyword() {
-    return new KeywordMapping();
+  static keyword(options: KeywordMappingOptions = {}) {
+    return new KeywordMapping(options);
   }
 
   static long() {
