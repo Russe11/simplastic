@@ -55,11 +55,9 @@ export class TextMapping implements
 
   public output: any;
 
-  constructor(options?: TextMappingOptions) {
-    if (!options) {
-      options = {};
-    }
+  constructor(options: TextMappingOptions = {}) {
     options.type = options.type || 'text';
+    this.output = options;
   }
 }
 

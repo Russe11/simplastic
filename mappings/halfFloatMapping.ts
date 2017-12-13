@@ -1,4 +1,4 @@
-import { NumericMapping } from './numericMapping'
+import {NumericMapping, NumericMappingOptions} from './numericMapping'
 
 /**
  A signed 64-bit integer with a minimum value of -263 and a maximum value of 263-1.
@@ -6,12 +6,10 @@ import { NumericMapping } from './numericMapping'
 export class HalfFloatMapping extends NumericMapping {
 
   public output: any;
-
-  constructor() {
-    super();
-    this.output = {
-      type: 'half_float'
-    };
+  constructor(options: NumericMappingOptions = {}) {
+    options.type = options.type || 'half_float';
+    super(options);
+    this.output = options;
   }
 }
 

@@ -1,9 +1,9 @@
 import {
   BoostParam,
-  DocValuesParam, indexOptionsParamOptions,
+  DocValuesParam,
   IndexParam,
-  NullValueParam, similarityParamOptions,
-  StoreParam, termVectorParamOptions
+  NullValueParam,
+  StoreParam
 } from './params';
 
 /**
@@ -15,11 +15,9 @@ export class BooleanMapping implements
   NullValueParam,
   StoreParam {
 
-  constructor(options?: BooleanMappingOptions) {
-    if (!options) {
-      options = {};
-    }
+  constructor(options: BooleanMappingOptions = {}) {
     options.type = options.type || 'boolean';
+    this.output = options;
   }
 
   public boost: (value?: number) => this;

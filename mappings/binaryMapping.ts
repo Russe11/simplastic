@@ -6,11 +6,11 @@ import {
 /**
  A signed 64-bit integer with a minimum value of -263 and a maximum value of 263-1.
  */
-export class ByteMapping implements
+export class BinaryMapping implements
   DocValuesParam,
   StoreParam {
 
-  constructor(options: ByteMappingOptions = {}) {
+  constructor(options: BinaryMappingOptions = {}) {
     options.type = options.type || 'byte';
     this.output = options;
   }
@@ -20,7 +20,7 @@ export class ByteMapping implements
   public output: any;
 }
 
-export interface ByteMappingOptions {
+export interface BinaryMappingOptions {
   type?: string,
   docValues?: boolean;
   store?: boolean;

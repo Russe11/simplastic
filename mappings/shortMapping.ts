@@ -1,4 +1,4 @@
-import { NumericMapping } from './numericMapping'
+import {NumericMapping, NumericMappingOptions} from './numericMapping'
 
 /**
  A signed 64-bit integer with a minimum value of -263 and a maximum value of 263-1.
@@ -7,11 +7,10 @@ export class ShortMapping extends NumericMapping {
 
   public output: any;
 
-  constructor() {
-    super();
-    this.output = {
-      type: 'short'
-    };
+  constructor(options: NumericMappingOptions = {}) {
+    options.type = options.type || 'short';
+    super(options);
+    this.output = options;
   }
 }
 

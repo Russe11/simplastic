@@ -19,6 +19,10 @@ export class NumericMapping implements
   NullValueParam,
   StoreParam {
 
+  constructor(options: NumericMappingOptions = {}) {
+    this.output = options;
+  }
+
   public boost: (value?: number) => this;
   public coerce: (value?: boolean) => this;
   public docValues: (value: boolean) => this;
@@ -28,4 +32,14 @@ export class NumericMapping implements
   public store: (value?: boolean) => this;
 
   public output: any;
+}
+
+export interface NumericMappingOptions {
+  type?: string;
+  boost?: number;
+  coerce?: boolean;
+  docValues?: boolean;
+  ignoreMalformed?: boolean;
+  index?: boolean;
+  store?: boolean;
 }

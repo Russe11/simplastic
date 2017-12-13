@@ -53,12 +53,30 @@ export class KeywordMapping implements
   public searchAnalyzer: (value: string) => this;
   public similarityParam: (value: similarityParamOptions) => this;
 
-  public output: any;
+  public output: KeywordMappingOptions;
 
-  constructor() {
-    this.output = {
-      type: 'keyword'
-    };
+  constructor(options: KeywordMappingOptions = {}) {
+    options.type = options.type || 'keyword';
+    this.output = options;
   }
+
 }
 
+export interface KeywordMappingOptions {
+  type?: string;
+  boost?: number;
+  eagerGlobalOrdinals?: boolean;
+  fieldData?: boolean;
+  fieldDataFrequencyFilter?: (min: number, max: number, minSegmentSize: number) => this;
+  fields?: string | string[];
+  ignoreAbove?: number;
+  index?: boolean;
+  indexOptionsParam?: indexOptionsParamOptions;
+  normalizer?: string;
+  norms?: boolean;
+  nullValue?: string;
+  positionIncrementGap?: number;
+  store?:boolean;
+  searchAnalyzer?: string;
+  similarityParam?: similarityParamOptions;
+}

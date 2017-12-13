@@ -10,6 +10,12 @@ import { HalfFloatMapping } from './halfFloatMapping';
 import { ScaledFloatMapping } from './scaledFloatMapping';
 import { DateMapping } from './dateMapping';
 import { BooleanMapping } from './booleanMapping';
+import { BinaryMapping } from './binaryMapping';
+import {IntegerRangeMapping} from './integerRangeMapping';
+import {FloatRangeMapping} from './floatRangeMapping';
+import {LongRangeMapping} from './longRangeMapping';
+import {DoubleRangeMapping} from './doubleRangeMapping';
+import {DateRangeMapping} from './dateRangeMapping';
 
 /**
  * https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html
@@ -21,9 +27,7 @@ export class SimplasticMappings {
    * https://www.elastic.co/guide/en/elasticsearch/reference/current/text.html
    */
   static text() {
-    const t =  new TextMapping({type: 'hi'});
-
-
+    return new TextMapping();
   }
 
   static keyword() {
@@ -70,30 +74,30 @@ export class SimplasticMappings {
     return new BooleanMapping();
   }
 
-  // binary(index = true) {
-  //   return this._generateType('binary', index);
-  // }
-  //
-  // integerRange(index = true) {
-  //   return this._generateType('integer_range', index);
-  // }
-  //
-  // floatRange(index = true) {
-  //   return this._generateType('float_range', index);
-  // }
-  //
-  // longRange(index = true) {
-  //   return this._generateType('long_range', index);
-  // }
-  //
-  // doubleRange(index = true) {
-  //   return this._generateType('double_range', index);
-  // }
-  //
-  // dateRange(index = true) {
-  //   return this._generateType('date_range', index);
-  // }
-  //
+  static binary() {
+    return new BinaryMapping();
+  }
+
+  static integerRange() {
+    return new IntegerRangeMapping();
+  }
+
+  static floatRange() {
+    return new FloatRangeMapping();
+  }
+
+  static longRange() {
+    return new LongRangeMapping();
+  }
+
+  static doubleRange() {
+    return new DoubleRangeMapping();
+  }
+
+  static dateRange() {
+    return new DateRangeMapping();
+  }
+
   // geoPoint(index = true) {
   //   return this._generateType('geo_point', index);
   // }

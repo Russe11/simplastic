@@ -22,9 +22,11 @@ export class DateMapping implements
   IndexParam,
   NullValueParam,
   StoreParam {
-  // locale(value?: string | LocaleParamOptions): this {
-  //   return undefined;
-  // }
+
+  constructor(options: DateMappingOptions = {}) {
+    options.type = options.type || 'date';
+    this.output = options;
+  }
 
   public boost: (value?: number) => this;
   public coerce: (value?: boolean) => this;
@@ -37,4 +39,16 @@ export class DateMapping implements
   public store: (value?: boolean) => this;
 
   public output: any;
+}
+
+export interface DateMappingOptions {
+  type?: string;
+  boost?: number;
+  coerce?: boolean;
+  docValues?: boolean;
+  fields?: string | DateFormats;
+  index?: boolean;
+  nullValue?: string;
+  locale?:  string | LocaleParamOptions
+  store?: boolean;
 }
